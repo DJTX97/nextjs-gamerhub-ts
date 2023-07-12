@@ -1,0 +1,12 @@
+import GamePage from "@/app/components/ContentComp/GamePage";
+import { UrlParams } from "@/app/utils/interfaces";
+import { fetchData } from "@/app/utils/dataFetchingKit";
+
+export default async function Game({ params }: UrlParams) {
+  const url = `https://mmo-games.p.rapidapi.com/game?id=${params.gameId}`;
+
+  const item = await fetchData(url);
+  // console.log(item);
+
+  return <GamePage params={params} item={item} />;
+}

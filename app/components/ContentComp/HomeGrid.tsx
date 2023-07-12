@@ -3,21 +3,8 @@ import { useState, useEffect, useRef, RefObject } from "react";
 import { GameBrief } from "@/app/utils/interfaces";
 import GameCard from "./GameCard";
 
-// interface GameBrief {
-//   id: number;
-//   thumbnail: string;
-//   title: string;
-//   genre: string;
-//   release_date: string;
-//   platform: string;
-// }
-
-interface Props {
-  games: GameBrief[];
-}
-
 const gamesPerRow: number = 6; //games per batch
-export default function HomeGrid({ games }: Props) {
+export default function HomeGrid({ games }: { games: GameBrief[] }) {
   const contentRef = useRef<HTMLDivElement>(null);; // ref to the content container
   const [next, setNext] = useState<number>(gamesPerRow); //games to be loaded on next batch
 
@@ -33,10 +20,8 @@ export default function HomeGrid({ games }: Props) {
     setNext(next + 3);
   };
 
-
+  //scroll to top on re-render
   useEffect(() => {
-    //window.scrollTo(0, 0);
-    //history.scrollRestoration = 'manual';
     if (history.scrollRestoration) {
       history.scrollRestoration = "manual";
     } else {

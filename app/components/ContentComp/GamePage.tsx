@@ -9,28 +9,21 @@ export default function GamePage({ item, params }: GameFull) {
   const [gameName, setGameName] = useState(
     item.title.replace(/ /g, "_").replace(/[^a-zA-Z0-9_]/g, "")
   );
-  const [gameParam, setGameParam] = useState(params.game_name[0]);
+  const [givenName, setGivenName] = useState(params.game_name[0]);
   const handleRouteChange = () => {
-    if (gameParam !== gameName) {
-      router.replace(`/games/${params.gameId}/${gameName}`);
-    }
+    router.replace(`/games/${params.gameId}/${gameName}`);
   };
 
-  //  const [gameName, setGameName] = useState(item.title.replace(/ /g, "_").replace(/[^a-zA-Z0-9_]/g, ""))
-  // const [gameParam, setGameParam] = useState(params.gameId[1])
-  // const handleRouteChange = () => {
-  //   if (gameParam !== gameName) {
-  //     //router.replace(`/games/${params.gameId[0]}/${gameName}`);
-  //     redirect(`/games/${params.gameId[0]}/${gameName}`);
-  //   }
-  // };
+  
 
   useEffect(() => {
-    handleRouteChange();
+    if (givenName !== gameName) {
+      handleRouteChange();
+    }
   }, []);
 
-  console.log(params);
-  console.log(item);
+  // console.log(params);
+  // console.log(item);
 
   return (
     <div className="w-full flex flex-col">

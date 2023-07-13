@@ -5,7 +5,7 @@ import Footer from "./components/ContentComp/Footer";
 export const metadata = {
   title: "GamerHub",
   description: "A site for true gamers.",
-  icons: "assets/favicon/fav.png",
+  icons: "../../assets/favicon/fav.png",
 };
 
 export default function RootLayout({ children }: {

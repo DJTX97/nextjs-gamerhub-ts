@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { GameBrief } from "@/app/utils/interfaces";
 
+
 export default function GameCard({
   title,
   genre,
@@ -9,6 +10,7 @@ export default function GameCard({
   platform,
   id,
 }: GameBrief) {
+
   return (
     <Link
       href={`/games/${id}/${title.replace(/ /g, "_").replace(/[^a-zA-Z0-9_]/g, "")}`} className="flex flex-col justify-center h-72 2xl:h-[30rem] hover:opacity-80 hover:scale-105 transition-all duration-[150ms]"

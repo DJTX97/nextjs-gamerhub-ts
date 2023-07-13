@@ -14,19 +14,14 @@ export interface UrlParams {
   };
 }
 
-export interface GameFull {
-  params: {
-    gameId: string;
-    game_name: string[];
-  };
-  item: {
+export interface GameFull extends UrlParams {
+  game: {
+    id: number;
     title: string;
     screenshots: Array<{ id: number; image: string }>;
-    id: number;
     developer: string;
     publisher: string;
     platform: string;
-    genres: string;
     short_description: string;
     minimum_system_requirements: {
       os: string;
@@ -34,7 +29,6 @@ export interface GameFull {
       memory: string;
       graphics: string;
       storage: string;
-      additional_notes: string;
     } | null;
     game_url: string;
   };

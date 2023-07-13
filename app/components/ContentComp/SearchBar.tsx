@@ -45,6 +45,12 @@ export default function SearchBar({games}:Props) {
     setInputValue("");
   };
 
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === "Enter") {
+      handleSearchButtonClick();
+    }
+  };
+
   //hide suggestions after clicking on the page
   const handleClickOutside = () => {
     setInputValue("");
@@ -88,6 +94,7 @@ export default function SearchBar({games}:Props) {
           value={inputValue}
           onChange={handleInputChange}
           onClick={() => setInputValue("")}
+          onKeyDown={handleKeyDown}
         ></input>
       </div>
       {inputValue !== "" && suggestions.length > 0 && (

@@ -4,7 +4,7 @@ import { fetchData } from "@/app/utils/dataFetchingKit";
 
 
 export default async function Game({ params }: UrlParams) {
-  const url = `https://mmo-games.p.rapidapi.com/game?id=${params.gameId}`;
+  const url = `https://${process.env.HOST}/game?id=${params.gameId}`;
 
   const data = await fetchData(url);
   // console.log(item);

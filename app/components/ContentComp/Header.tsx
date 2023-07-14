@@ -3,7 +3,7 @@ import SearchBar from "./SearchBar";
 import { GameBrief } from "@/app/utils/interfaces";
 import { fetchData } from "@/app/utils/dataFetchingKit";
 
-const url = "https://mmo-games.p.rapidapi.com/games";
+const url = `https://${process.env.HOST}/games`;
 
 const games: GameBrief[] = await fetchData(url);
 

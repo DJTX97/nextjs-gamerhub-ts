@@ -6,16 +6,20 @@ import { GameFull } from "@/app/utils/interfaces";
 export default function GamePage({ game, params }: GameFull) {
   const router = useRouter();
 
-  const [gameName, setGameName] = useState(
+  const [gameName, setGameName] = useState<string>(
     game.title.replace(/ /g, "_").replace(/[^a-zA-Z0-9_]/g, "")
   );
-  const [givenName, setGivenName] = useState(params.game_name[0]);
+  const [givenName, setGivenName] = useState<string>(params.game_name[0]);
   const handleRouteChange = () => {
     router.replace(`/games/${params.gameId}/${gameName}`);
   };
 
   useEffect(() => {
     if (givenName !== gameName) {
+      handleRouteChange();
+    }
+    if (params.game_name.length > 1) {
+      params.game_name.splice(1);
       handleRouteChange();
     }
   }, []);
@@ -33,8 +37,8 @@ export default function GamePage({ game, params }: GameFull) {
   const { os, processor, memory, graphics, storage } =
     game.minimum_system_requirements || {};
 
-  // console.log(params);
-  console.log(game);
+  //console.log(params);
+  //console.log(game);
 
   return (
     <div className="w-full flex flex-col">
@@ -114,7 +118,7 @@ export default function GamePage({ game, params }: GameFull) {
               </div>
             </div>
           ) : (
-            <div>N/A</div>
+            <div className="py-3">N/A</div>
           )}
         </div>
         {game_url && (

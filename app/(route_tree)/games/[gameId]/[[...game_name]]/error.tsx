@@ -9,10 +9,10 @@ export default function Error({
   reset: () => void;
 }) {
   const router = useRouter();
-//   useEffect(() => {
-//     // Log the error to an error reporting service
-//     console.error(error);
-//   }, [error]);
+  useEffect(() => {
+    // Log the error to an error reporting service
+    console.error(error);
+  }, [error]);
   return (
     <div className="h-[1000px] 2xl:h-[1500px] w-full mx-10 py-40 flex flex-col items-center gap-8 rounded-2xl">
       <div className="text-center font-bold text-5xl">Resource not found!</div>

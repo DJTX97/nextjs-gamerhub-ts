@@ -3,6 +3,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { GameFull } from "@/app/utils/interfaces";
 
+
 export default function GamePage({ game, params }: GameFull) {
   const router = useRouter();
 
@@ -39,7 +40,7 @@ export default function GamePage({ game, params }: GameFull) {
 
   //console.log(params);
   //console.log(game);
-
+  //console.log(filteredUrlParts);
   return (
     <div className="w-full flex flex-col">
       <img

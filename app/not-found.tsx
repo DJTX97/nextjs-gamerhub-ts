@@ -1,10 +1,14 @@
-"use client";
+"use client"
 import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 export default function NotFound() {
-  //FIXED
   const router = useRouter()
-  router.push("/")
+  useEffect(() => {
+    router.replace("/")
+  }, [])
+  
+
   return (
     <div className="h-[1000px] 2xl:h-[1500px] w-full mx-10 flex flex-col items-center rounded-2xl">
     <div

@@ -1,4 +1,4 @@
-import ContentTitle from "./components/ContentComp/HomeTitle";
+import HomeTitle from "./components/ContentComp/HomeTitle";
 import HomeGrid from "./components/ContentComp/HomeGrid";
 import { GameBrief } from "./utils/interfaces";
 import { fetchData } from "../app/utils/dataFetchingKit";
@@ -10,7 +10,7 @@ export default async function Home() {
 
   return (
     <>
-      <ContentTitle />
+      <HomeTitle />
       <HomeGrid games={games} />
     </>
   );

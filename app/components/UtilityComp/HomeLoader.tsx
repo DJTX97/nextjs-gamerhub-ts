@@ -1,9 +1,9 @@
-import ContentTitle from "../ContentComp/HomeTitle";
+import HomeTitle from "../ContentComp/HomeTitle";
 
 export default function HomeLoader() {
   return (
     <div className="w-full mx-10 bg-theme_black rounded-2xl">
-      <ContentTitle />
+      <HomeTitle />
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-14 md:gap-y-10 2xl:gap-28 px-10 pb-3 md:pb-5 pt-10 md:pt-12 2xl:px-20">
         {Array.from({ length: 6 }, (_, i) => (
           <div

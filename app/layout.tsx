@@ -17,7 +17,6 @@ export default function RootLayout({ children }: {
         <div className="2xl:max-w-[2000px] flex flex-col gap-4">
           <Header />
           <div className="flex gap-5 justify-center">
-            {/* <Sidebar /> */}
             <div className="w-[22rem] sm:w-full md:mx-10 flex flex-col items-center bg-theme_black rounded-2xl">
               {children}
             </div>

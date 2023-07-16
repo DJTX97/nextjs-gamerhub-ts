@@ -18,11 +18,7 @@ export default function GameCard({
     >
       <img
         className="h-1/2 w-full rounded-t-xl"
-        src={
-          thumbnail !== undefined
-            ? thumbnail
-            : "../assets/images/placeholder.jpg"
-        }
+        src={thumbnail ? thumbnail : "../../assets/images/placeholder.jpg"}
         loading="lazy"
         alt=""
       />

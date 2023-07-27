@@ -1,7 +1,12 @@
 import GamePage from "@/app/components/ContentComp/GamePage";
-import { UrlParams } from "@/app/utils/interfaces";
 import { fetchData } from "@/app/utils/dataFetchingKit";
 
+interface UrlParams {
+    params: {
+      gameId: string;
+      game_name: string[];
+    };
+  }
 
 export default async function Game({ params }: UrlParams) {
   const url = `https://${process.env.HOST}/game?id=${params.gameId}`;

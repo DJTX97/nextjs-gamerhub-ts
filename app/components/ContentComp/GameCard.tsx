@@ -1,5 +1,13 @@
 import Link from "next/link";
-import { GameBrief } from "@/app/utils/interfaces";
+
+interface GameBrief {
+  id: number;
+  thumbnail: string | undefined;
+  title: string;
+  genre: string;
+  release_date: string | null;
+  platform: string | undefined;
+}
 
 export default function GameCard({
   title,

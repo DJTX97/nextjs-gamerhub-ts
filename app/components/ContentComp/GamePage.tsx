@@ -1,9 +1,32 @@
 "use client";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { GameFull } from "@/app/utils/interfaces";
 
-export default function GamePage({ game, params }: GameFull) {
+interface GamePage {
+  params: {
+    gameId: string;
+    game_name: string[];
+  };
+  game: {
+    id: number;
+    title: string;
+    screenshots: Array<{ id: number; image: string }> | null;
+    developer: string | undefined;
+    publisher: string | undefined;
+    platform: string | undefined;
+    short_description: string;
+    minimum_system_requirements: {
+      os: string;
+      processor: string;
+      memory: string;
+      graphics: string;
+      storage: string;
+    } | null;
+    game_url: string;
+  };
+}
+
+export default function GamePage({ game, params }: GamePage) {
   const router = useRouter();
 
   const [gameName, setGameName] = useState<string>(

@@ -1,18 +1,22 @@
 "use client";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { GameBrief } from "@/app/utils/interfaces";
 import Link from "next/link";
 
-interface Props {
-  games: GameBrief[];
-  suggestions?: GameBrief[];
+
+interface GameBrief {
+  id: number;
+  thumbnail: string | undefined;
+  title: string;
+  genre: string;
+  release_date: string | null;
+  platform: string | undefined;
 }
-export default function SearchBar({games}:Props) {
+
+export default function SearchBar({ games }: { games: GameBrief[] }) {
   const router = useRouter(); //for navigating to other pages
   const [inputValue, setInputValue] = useState<string>(""); //input field state
   const [suggestions, setSuggestions] = useState<GameBrief[]>([]); //suggestion list state
-
 
   //track input change
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -36,7 +40,11 @@ export default function SearchBar({games}:Props) {
         (game) => game.title.toLowerCase() === inputValue.toLowerCase()
       );
       if (matchingGame) {
-        router.push(`/games/${matchingGame.id}/${matchingGame.title.replace(/ /g, "_").replace(/[^a-zA-Z0-9_]/g, "")}`);
+        router.push(
+          `/games/${matchingGame.id}/${matchingGame.title
+            .replace(/ /g, "_")
+            .replace(/[^a-zA-Z0-9_]/g, "")}`
+        );
         console.log(matchingGame);
       } else {
         router.push(`/missing`);
@@ -102,7 +110,9 @@ export default function SearchBar({games}:Props) {
           <ul className="rounded-xl bg-theme_white">
             {suggestions.map((game) => (
               <Link
-                href={`/games/${game.id}/${game.title.replace(/ /g, "_").replace(/[^a-zA-Z0-9_]/g, "")}`}
+                href={`/games/${game.id}/${game.title
+                  .replace(/ /g, "_")
+                  .replace(/[^a-zA-Z0-9_]/g, "")}`}
                 onClick={() => setInputValue("")}
                 key={game.id}
               >

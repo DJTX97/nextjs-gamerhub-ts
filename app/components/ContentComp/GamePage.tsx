@@ -2,7 +2,7 @@
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
-interface GamePage {
+interface GamePageProps {
   params: {
     gameId: string;
     game_name: string[];
@@ -26,7 +26,7 @@ interface GamePage {
   };
 }
 
-export default function GamePage({ game, params }: GamePage) {
+export default function GamePage({ game, params }: GamePageProps) {
   const router = useRouter();
 
   const [gameName, setGameName] = useState<string>(

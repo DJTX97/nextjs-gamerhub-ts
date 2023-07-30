@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-interface GameBrief {
+interface GameCardProps {
   id: number;
   thumbnail: string | undefined;
   title: string;
@@ -16,7 +16,7 @@ export default function GameCard({
   release_date,
   platform,
   id,
-}: GameBrief) {
+}: GameCardProps) {
   return (
     <Link
       href={`/games/${id}/${title

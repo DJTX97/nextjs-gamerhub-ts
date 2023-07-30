@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 
 
-interface GameBrief {
+interface SearchBarProps {
   id: number;
   thumbnail: string | undefined;
   title: string;
@@ -13,10 +13,10 @@ interface GameBrief {
   platform: string | undefined;
 }
 
-export default function SearchBar({ games }: { games: GameBrief[] }) {
+export default function SearchBar({ games }: { games: SearchBarProps[] }) {
   const router = useRouter(); //for navigating to other pages
   const [inputValue, setInputValue] = useState<string>(""); //input field state
-  const [suggestions, setSuggestions] = useState<GameBrief[]>([]); //suggestion list state
+  const [suggestions, setSuggestions] = useState<SearchBarProps[]>([]); //suggestion list state
 
   //track input change
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {

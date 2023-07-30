@@ -2,18 +2,9 @@ import Link from "next/link";
 import SearchBar from "./SearchBar";
 import { fetchData } from "@/app/utils/dataFetchingKit";
 
-interface GameBrief {
-  id: number;
-  thumbnail: string | undefined;
-  title: string;
-  genre: string;
-  release_date: string | null;
-  platform: string | undefined;
-}
-
 const url = `https://${process.env.HOST}/games`;
 
-const games: GameBrief[] = await fetchData(url);
+const games = await fetchData(url);
 
 export default function Header() {
   return (

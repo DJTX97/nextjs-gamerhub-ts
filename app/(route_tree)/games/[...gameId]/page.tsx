@@ -9,10 +9,10 @@ interface GamePageParams {
   }
 
 export default async function Game({ params }: GamePageParams) {
-  const url = `https://${process.env.HOST}/game?id=${params.gameId}`;
+  const url = `https://${process.env.HOST}/game?id=${params.gameId[0]}`;
 
   const data = await fetchData(url);
-  // console.log(item);
+  //console.log(params);
 
   return <GamePage params={params} game={data} />;
 }

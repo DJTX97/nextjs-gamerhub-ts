@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 
-
 interface SearchBarProps {
   id: number;
   thumbnail: string | undefined;
@@ -29,7 +28,7 @@ export default function SearchBar({ games }: { games: SearchBarProps[] }) {
     const filteredGames = games.filter((game) =>
       game.title.toLowerCase().includes(inputValue.toLowerCase())
     );
-    setSuggestions(filteredGames.slice(0, 5));
+    setSuggestions(filteredGames.slice(0, 10));
   };
 
   //search button functionality
@@ -46,9 +45,10 @@ export default function SearchBar({ games }: { games: SearchBarProps[] }) {
             .replace(/[^a-zA-Z0-9_]/g, "")}`
         );
         console.log(matchingGame);
-      } else {
-        router.push(`/missing`);
       }
+      // else {
+      //   router.push(`/missing`);
+      // }
     }
     setInputValue("");
   };
@@ -77,13 +77,13 @@ export default function SearchBar({ games }: { games: SearchBarProps[] }) {
 
   return (
     <div className="text-[18px] 2xl:text-2xl font-normal text-theme_black">
-      <div className="h-9 2xl:h-12 flex">
+      <div className="flex h-9 2xl:h-12">
         <button
-          className="w-10 h-full md:w-14 flex justify-center items-center bg-theme_light_gray hover:bg-theme_medium_gray rounded-l-full"
+          className="flex items-center justify-center w-10 h-full rounded-l-full md:w-14 bg-theme_light_gray hover:bg-theme_medium_gray"
           onClick={handleSearchButtonClick}
         >
           <svg
-            className="h-6 2xl:h-8 fill-current text-theme_white"
+            className="h-6 fill-current 2xl:h-8 text-theme_white"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
@@ -96,7 +96,7 @@ export default function SearchBar({ games }: { games: SearchBarProps[] }) {
           </svg>
         </button>
         <input
-          className="w-32 md:w-56 2xl:w-80 pl-2 focus:outline-none rounded-r-full"
+          className="w-32 pl-2 rounded-r-full md:w-56 2xl:w-80 focus:outline-none"
           type="text"
           placeholder="Search"
           value={inputValue}
@@ -106,22 +106,21 @@ export default function SearchBar({ games }: { games: SearchBarProps[] }) {
         ></input>
       </div>
       {inputValue !== "" && suggestions.length > 0 && (
-        <div className="absolute right-6 md:right-auto z-10 w-60 mt-1">
-          <ul className="rounded-xl bg-theme_white">
-            {suggestions.map((game) => (
-              <Link
-                href={`/games/${game.id}/${game.title
-                  .replace(/ /g, "_")
-                  .replace(/[^a-zA-Z0-9_]/g, "")}`}
-                onClick={() => setInputValue("")}
-                key={game.id}
-              >
-                <li className="px-3 2xl:py-3 rounded-xl hover:bg-theme_light_gray">
-                  {game.title}
-                </li>
-              </Link>
-            ))}
-          </ul>
+        <div className="absolute z-10 mt-1 right-6 md:right-auto w-60 rounded-xl bg-theme_white">
+          {suggestions.map((game) => (
+            <Link
+              href={`/games/${game.id}/${game.title
+                .replace(/ /g, "_")
+                .replace(/[^a-zA-Z0-9_]/g, "")}`}
+              onClick={() => setInputValue("")}
+              key={game.id}
+            >
+              <div className="px-3 rounded-xl 2xl:py-3 hover:bg-theme_light_gray">
+                {game.title}
+                <div className="h-[1px] p-0 m-0 bg-theme_light_gray" />
+              </div>
+            </Link>
+          ))}
         </div>
       )}
     </div>

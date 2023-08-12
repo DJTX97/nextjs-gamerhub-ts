@@ -14,13 +14,13 @@ interface GamePageProps {
     developer: string | undefined;
     publisher: string | undefined;
     platform: string | undefined;
-    short_description: string;
+    short_description: string | undefined;
     minimum_system_requirements: {
-      os: string;
-      processor: string;
-      memory: string;
-      graphics: string;
-      storage: string;
+      os: string | null;
+      processor: string | null;
+      memory: string | null;
+      graphics: string | null;
+      storage: string | null;
     } | null;
     game_url: string;
   };
@@ -76,26 +76,26 @@ export default function GamePage({ game, params }: GamePageProps) {
           <div className="flex flex-col items-baseline md:flex-row 2xl:text-4xl">
             Developer:&nbsp;
             <div className="text-xl font-normal 2xl:text-3xl">
-              {developer ? developer : "N/A"}
+              {developer ?? "N/A"}
             </div>
           </div>
           <div className="flex flex-col items-baseline md:flex-row 2xl:text-4xl">
             Publisher:&nbsp;
             <div className="text-xl font-normal 2xl:text-3xl">
-              {publisher ? publisher : "N/A"}
+              {publisher ?? "N/A"}
             </div>
           </div>
           <div className="flex flex-col items-baseline md:flex-row 2xl:text-4xl">
             Platform:&nbsp;
             <div className="text-xl font-normal 2xl:text-3xl">
-              {platform ? platform : "N/A"}
+              {platform ?? "N/A"}
             </div>
           </div>
         </div>
         <div className="flex flex-col gap-2 font-bold 2xl:text-4xl">
           Description:&nbsp;
           <div className="text-xl font-normal 2xl:text-3xl">
-            {short_description ? short_description : "N/A"}
+            {short_description ?? "N/A"}
           </div>
         </div>
         <div className="font-bold 2xl:text-4xl">
@@ -105,31 +105,31 @@ export default function GamePage({ game, params }: GamePageProps) {
               <div className="flex flex-col items-baseline sm:flex-row 2xl:text-3xl">
                 OS:&nbsp;
                 <div className="text-lg font-normal sm:text-xl 2xl:text-3xl">
-                  {os ? os : "N/A"}
+                  {os ?? "N/A"}
                 </div>
               </div>
               <div className="flex flex-col items-baseline sm:flex-row 2xl:text-3xl">
                 Processor:&nbsp;
                 <div className="text-lg font-normal sm:text-xl 2xl:text-3xl">
-                  {processor ? processor : "N/A"}
+                  {processor ?? "N/A"}
                 </div>
               </div>
               <div className="flex flex-col items-baseline sm:flex-row 2xl:text-3xl">
                 RAM:&nbsp;
                 <div className="text-lg font-normal sm:text-xl 2xl:text-3xl">
-                  {memory ? memory : "N/A"}
+                  {memory ?? "N/A"}
                 </div>
               </div>
               <div className="flex flex-col items-baseline sm:flex-row 2xl:text-3xl">
                 Graphics card:&nbsp;
                 <div className="text-lg font-normal sm:text-xl 2xl:text-3xl">
-                  {graphics ? graphics : "N/A"}
+                  {graphics ?? "N/A"}
                 </div>
               </div>
               <div className="flex flex-col items-baseline sm:flex-row 2xl:text-3xl">
                 Storage:&nbsp;
                 <div className="text-lg font-normal sm:text-xl 2xl:text-3xl">
-                  {storage ? storage : "N/A"}
+                  {storage ?? "N/A"}
                 </div>
               </div>
             </div>

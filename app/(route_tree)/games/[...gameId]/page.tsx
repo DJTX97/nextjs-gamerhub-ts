@@ -13,6 +13,6 @@ export default async function Game({ params }: GamePageParams) {
 
   const data = await fetchData(url);
   //console.log(params);
-
+  //console.log(data)
   return <GamePage params={params} game={data} />;
 }

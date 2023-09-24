@@ -1,10 +1,18 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
-import { GameBrief } from "@/app/utils/interfaces";
 import GameCard from "./GameCard";
 
+interface HomeGridProps {
+  id: number;
+  thumbnail: string | undefined;
+  title: string;
+  genre: string;
+  release_date: string | null;
+  platform: string | undefined;
+}
+
 const gamesPerRow: number = 6; //games per batch
-export default function HomeGrid({ games }: { games: GameBrief[] }) {
+export default function HomeGrid({ games }: { games: HomeGridProps[] }) {
   const contentRef = useRef<HTMLDivElement>(null); // ref to the content container
   const [next, setNext] = useState<number>(gamesPerRow); //games to be loaded on next batch
 

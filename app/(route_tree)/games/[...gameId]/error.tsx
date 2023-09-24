@@ -15,8 +15,10 @@ export default function Error({
   }, [error]);
   return (
     <div className="h-[1000px] 2xl:h-[1500px] w-full mx-10 py-40 flex flex-col items-center gap-8 rounded-2xl">
-      <div className="text-center font-bold text-5xl">Resource not found!</div>
-      <div className="flex flex-col md:flex-row gap-5">
+      <div className="text-5xl font-bold text-center md:text-6xl">
+        Game not found!
+      </div>
+      <div className="flex flex-col gap-5 md:flex-row">
         <div className="flex items-center">
           <button
             onClick={reset}

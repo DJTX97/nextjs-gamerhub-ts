@@ -3,12 +3,12 @@
 @tailwind utilities;
 
 @layer base {
-    html {
-        @apply text-theme_white;
-        @apply bg-theme_dark_violet;
-    }
+  html {
+    @apply text-theme_white;
+    @apply bg-theme_dark_violet;
+  }
 
-    .border-theme {
-        @apply border-theme_dark_pink;
-    }
+  .border-theme {
+    @apply border-theme_dark_pink;
+  }
 }

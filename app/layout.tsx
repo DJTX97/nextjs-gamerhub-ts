@@ -3,7 +3,7 @@ import Header from "./components/ContentComp/Header";
 import Footer from "./components/ContentComp/Footer";
 
 export const metadata = {
-  title: "GamerHub",
+  title: "GamerzHub",
   description: "A site for true gamers.",
   icons: "../../assets/favicon/fav.png",
 };
